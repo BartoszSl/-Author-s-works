@@ -1,0 +1,248 @@
+@-webkit-keyframes typing {
+  from {
+    width: 0;
+  }
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+@-webkit-keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+@-webkit-keyframes code {
+  from {
+    bottom: 15px;
+    color: #979797;
+  }
+  to {
+    bottom: 700px;
+  }
+}
+@keyframes code {
+  from {
+    bottom: 15px;
+    color: #979797;
+  }
+  to {
+    bottom: 700px;
+  }
+}
+@-webkit-keyframes colors {
+  from {
+    color: #2d5cdd;
+  }
+  to {
+    color: #c75ae0;
+  }
+}
+@keyframes colors {
+  from {
+    color: #2d5cdd;
+  }
+  to {
+    color: #c75ae0;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-image: url(../img/architektura-hurtowni-baz-danych-1.png);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  z-index: 2;
+  font-family: "Poppins", sans-serif;
+}
+
+.fixed-shadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(36, 4, 124, 0.8);
+  z-index: 1;
+}
+
+.styledCard {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 75vh;
+  width: 35vw;
+  z-index: 3;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: #fcfcfc;
+  -webkit-box-shadow: 0px 40px 11px -18px #282238;
+          box-shadow: 0px 40px 11px -18px #282238;
+}
+.styledCard .animacja {
+  position: absolute;
+  right: 35px;
+  bottom: 15px;
+  -webkit-transform: scale(2.5);
+          transform: scale(2.5);
+  -webkit-animation: code 3s infinite;
+          animation: code 3s infinite;
+}
+.styledCard .headerCard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 20px;
+  font-weight: 700;
+  padding-bottom: 15px;
+}
+.styledCard .headerCard img {
+  width: 5%;
+  margin-left: -250px;
+  margin-right: 15px;
+}
+.styledCard .headerCard .animatedText h2,
+.styledCard .headerCard .animatedText div {
+  margin-left: 5px;
+  font-size: 30px;
+  text-transform: uppercase;
+  color: #2d5cdd;
+  -webkit-animation: colors 3s infinite;
+          animation: colors 3s infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+.styledCard .headerCard .animatedText div {
+  margin-top: -15px;
+  width: 16ch;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  -webkit-animation: typing 2s steps(16), blink 1s step-end infinite;
+          animation: typing 2s steps(16), blink 1s step-end infinite;
+}
+.styledCard .contentCard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 30vw;
+  height: 66vh;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 10px;
+  background-color: rgb(233, 232, 232);
+  border-right: 1px solid rgb(102, 101, 101);
+  border-top: 1px solid rgb(102, 101, 101);
+}
+.styledCard .contentCard .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 46%;
+  height: 45%;
+}
+.styledCard .contentCard .card i {
+  -webkit-transform: scale(5);
+          transform: scale(5);
+  -webkit-transition: color 0.3s, -webkit-transform 0.5s;
+  transition: color 0.3s, -webkit-transform 0.5s;
+  transition: transform 0.5s, color 0.3s;
+  transition: transform 0.5s, color 0.3s, -webkit-transform 0.5s;
+  color: black;
+}
+.styledCard .contentCard .card p {
+  font-weight: 700;
+  font-size: 24px;
+  margin-top: 50px;
+  color: rgb(102, 101, 101);
+  -webkit-transition: font-size 0.5s, margin-top 0.5s, color 0.3s;
+  transition: font-size 0.5s, margin-top 0.5s, color 0.3s;
+}
+.styledCard .contentCard .card:hover i {
+  -webkit-transform: scale(8);
+          transform: scale(8);
+  color: #2d5cdd;
+}
+.styledCard .contentCard .card:hover p {
+  font-size: 32px;
+  margin-top: 75px;
+  color: rgb(56, 55, 55);
+}
+.styledCard .contentCard .firstCard,
+.styledCard .contentCard .secondCard {
+  margin-top: 20px;
+}
+.styledCard .contentCard .firstCard,
+.styledCard .contentCard .thirdCard {
+  margin-left: -10px;
+  margin-right: 1px;
+}
+.styledCard .contentCard .thirdCard,
+.styledCard .contentCard .fourthCard {
+  margin-bottom: 40px;
+}
+.styledCard .contentCard h3 {
+  position: absolute;
+  font-weight: 300;
+  font-size: 10px;
+  bottom: 1px;
+  color: rgb(102, 101, 101);
+}
+.styledCard .contentCard h3 span {
+  font-weight: 700;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,155 @@
+@import 'colors';
+@import 'animations';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-image: url(../img/architektura-hurtowni-baz-danych-1.png);
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	height: 100vh;
+	z-index: 2;
+	font-family: 'Poppins', sans-serif;
+}
+
+.fixed-shadow {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: $background-color;
+	z-index: 1;
+}
+
+.styledCard {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	height: 75vh;
+	width: 35vw;
+	z-index: 3;
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	background-color: #fcfcfc;
+	box-shadow: 0px 40px 11px -18px #282238;
+	.animacja {
+		position: absolute;
+		right: 35px;
+		bottom: 15px;
+		transform: scale(2.5);
+		animation: code 3s infinite;
+	}
+	.headerCard {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 20px;
+		font-weight: 700;
+		padding-bottom: 15px;
+		img {
+			width: 5%;
+			margin-left: -250px;
+			margin-right: 15px;
+		}
+		.animatedText {
+			h2,
+			div {
+				margin-left: 5px;
+				font-size: 30px;
+				text-transform: uppercase;
+				color: $decoration-color;
+				animation: colors 3s infinite;
+				animation-direction: alternate;
+			}
+			div {
+				margin-top: -15px;
+				width: 16ch;
+				white-space: nowrap;
+				overflow: hidden;
+				border-right: 3px solid;
+				animation: typing 2s steps(16), blink 1s step-end infinite;
+			}
+		}
+	}
+	.contentCard {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		width: 30vw;
+		height: 66vh;
+		border-top-right-radius: 30px;
+		border-bottom-left-radius: 10px;
+		background-color: $lightGrey;
+		border-right: 1px solid $content-color;
+		border-top: 1px solid $content-color;
+		.card {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			width: 46%;
+			height: 45%;
+			i {
+				transform: scale(5);
+				transition: transform 0.5s, color 0.3s;
+				color: black;
+			}
+			p {
+				font-weight: 700;
+				font-size: 24px;
+				margin-top: 50px;
+				color: $content-color;
+				transition: font-size 0.5s, margin-top 0.5s, color 0.3s;
+			}
+		}
+		.card:hover {
+			i {
+				transform: scale(8);
+				color: $decoration-color;
+			}
+			p {
+				font-size: 32px;
+				margin-top: 75px;
+				color: $darkGrey;
+			}
+		}
+		.firstCard,
+		.secondCard {
+			margin-top: 20px;
+		}
+		.firstCard,
+		.thirdCard {
+			margin-left: -10px;
+			margin-right: 1px;
+		}
+		.thirdCard,
+		.fourthCard {
+			margin-bottom: 40px;
+		}
+		h3 {
+			position: absolute;
+			font-weight: 300;
+			font-size: 10px;
+			bottom: 1px;
+			color: $content-color;
+			span {
+				font-weight: 700;
+			}
+		}
+	}
+}

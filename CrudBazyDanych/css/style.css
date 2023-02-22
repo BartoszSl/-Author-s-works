@@ -30,8 +30,14 @@ body .backgroundImageShadow {
   background-color: rgba(86, 41, 207, 0.8);
   z-index: -1;
 }
-body main .rightSideCard {
-  position: relative;
+body .headingCard {
+  height: 12%;
+  width: 100%;
+  background-color: rgb(102, 101, 101);
+}
+body .headingCard h2 {
+  width: 100%;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -41,30 +47,10 @@ body main .rightSideCard {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 30vw;
-  height: 80vh;
-  background-color: rgb(233, 230, 230);
-  border-radius: 10px;
-  -webkit-box-shadow: 7px 7px 10px 0px rgb(46, 45, 45);
-          box-shadow: 7px 7px 10px 0px rgb(46, 45, 45);
+  color: white;
+  text-transform: uppercase;
 }
-body main .rightSideCard .listIdentifyCard {
-  width: 80%;
-  height: 80%;
-  background-color: rgb(223, 219, 219);
-  border: 3px solid rgb(102, 101, 101);
-  border-radius: 10px;
-  overflow-y: auto;
-}
-body main .rightSideCard .listIdentifyCard .searchCard {
-  height: 7vh;
-  background-color: rgb(102, 101, 101);
-}
-body main .rightSideCard .listIdentifyCard .searchCard form {
+body .headingCard form {
   width: 100%;
   height: 100%;
   display: -webkit-box;
@@ -77,7 +63,7 @@ body main .rightSideCard .listIdentifyCard .searchCard form {
       -ms-flex-pack: center;
           justify-content: center;
 }
-body main .rightSideCard .listIdentifyCard .searchCard form input {
+body .headingCard form input {
   width: 70%;
   height: 50%;
   border-radius: 10px;
@@ -91,36 +77,36 @@ body main .rightSideCard .listIdentifyCard .searchCard form input {
   transition: box-shadow 0.3s;
   transition: box-shadow 0.3s, -webkit-box-shadow 0.3s;
 }
-body main .rightSideCard .listIdentifyCard .searchCard form input:focus {
+body .headingCard form input:focus {
   border: 1px solid black;
   -webkit-box-shadow: 0px 0px 9px 3px rgb(56, 55, 55);
           box-shadow: 0px 0px 9px 3px rgb(56, 55, 55);
 }
-body main .rightSideCard .listIdentifyCard .searchCard form input:hover {
+body .headingCard form input:hover {
   -webkit-box-shadow: 0px 0px 9px 3px rgb(56, 55, 55);
           box-shadow: 0px 0px 9px 3px rgb(56, 55, 55);
 }
-body main .rightSideCard .listIdentifyCard .searchCard form input::-webkit-input-placeholder {
+body .headingCard form input::-webkit-input-placeholder {
   color: black;
   font-weight: 300;
 }
-body main .rightSideCard .listIdentifyCard .searchCard form input::-moz-placeholder {
+body .headingCard form input::-moz-placeholder {
   color: black;
   font-weight: 300;
 }
-body main .rightSideCard .listIdentifyCard .searchCard form input:-ms-input-placeholder {
+body .headingCard form input:-ms-input-placeholder {
   color: black;
   font-weight: 300;
 }
-body main .rightSideCard .listIdentifyCard .searchCard form input::-ms-input-placeholder {
+body .headingCard form input::-ms-input-placeholder {
   color: black;
   font-weight: 300;
 }
-body main .rightSideCard .listIdentifyCard .searchCard form input::placeholder {
+body .headingCard form input::placeholder {
   color: black;
   font-weight: 300;
 }
-body main .rightSideCard .listIdentifyCard .searchCard form button {
+body .headingCard form button {
   cursor: pointer;
   width: 10%;
   height: 50%;
@@ -132,15 +118,232 @@ body main .rightSideCard .listIdentifyCard .searchCard form button {
   transition: box-shadow 0.3s;
   transition: box-shadow 0.3s, -webkit-box-shadow 0.3s;
 }
-body main .rightSideCard .listIdentifyCard .searchCard form button i {
+body .headingCard form button i {
   -webkit-transform: scale(1.5);
           transform: scale(1.5);
 }
-body main .rightSideCard .listIdentifyCard .searchCard form button:hover {
+body .headingCard form button:hover {
   -webkit-box-shadow: 0px 0px 9px 3px rgb(56, 55, 55);
           box-shadow: 0px 0px 9px 3px rgb(56, 55, 55);
 }
-body main .rightSideCard .listIdentifyCard .miniInformationCard {
+body main .leftSideCard {
+  position: relative;
+  width: 70vw;
+}
+body main .leftSideCard .leftCard {
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/pexels-ron-lach-10533148.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  -webkit-box-shadow: 5px 0px 10px -4px rgba(86, 41, 207, 0.8);
+          box-shadow: 5px 0px 10px -4px rgba(86, 41, 207, 0.8);
+  z-index: 1;
+}
+body main .leftSideCard .leftCard .shadow {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background-color: rgba(86, 41, 207, 0.8);
+  z-index: -3;
+}
+body main .leftSideCard .leftCard .insert {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+}
+body main .leftSideCard .leftCard .insert .insertForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  border: 3px solid rgb(102, 101, 101);
+  border-radius: 10px;
+  width: 80%;
+  height: 80%;
+}
+body main .leftSideCard .leftCard .insert .insertForm label {
+  font-size: 12px;
+}
+body main .leftSideCard .leftCard .insert .insertForm input,
+body main .leftSideCard .leftCard .insert .insertForm select,
+body main .leftSideCard .leftCard .insert .insertForm textarea {
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 0 10px;
+  font-size: 12px;
+  width: 150px;
+  height: 30px;
+  font-size: 16px;
+}
+body main .leftSideCard .leftCard .insert .insertForm .firstGroup,
+body main .leftSideCard .leftCard .insert .insertForm .secondGroup,
+body main .leftSideCard .leftCard .insert .insertForm .thirdGroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 86%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 20px;
+}
+body main .leftSideCard .leftCard .insert .insertForm .fourthGroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 86%;
+}
+body main .leftSideCard .leftCard .insert .insertForm .firstGroup {
+  margin-top: 50px;
+}
+body main .leftSideCard .leftCard .insert .insertForm .firstGroup input {
+  width: 150px;
+  height: 30px;
+}
+body main .leftSideCard .leftCard .insert .insertForm .secondGroup .userItem input {
+  width: 75px;
+}
+body main .leftSideCard .leftCard .insert .insertForm .secondGroup .userItem label {
+  font-size: 8px;
+}
+body main .leftSideCard .leftCard .insert .insertForm .secondGroup .titleItem select {
+  width: 90px;
+}
+body main .leftSideCard .leftCard .insert .insertForm .secondGroup .dateItem input {
+  width: 100px;
+}
+body main .leftSideCard .leftCard .insert .insertForm .secondGroup .dateItem label {
+  font-size: 9px;
+}
+body main .leftSideCard .leftCard .insert .insertForm .fourthGroup {
+  padding: 0 7%;
+  width: 100%;
+}
+body main .leftSideCard .leftCard .insert .insertForm .fourthGroup .deptItem {
+  margin-bottom: 20px;
+  width: 100%;
+}
+body main .leftSideCard .leftCard .insert .insertForm .fourthGroup .deptItem select {
+  text-align: center;
+  width: 100%;
+}
+body main .leftSideCard .leftCard .insert .insertForm .fourthGroup textarea {
+  padding-top: 10px;
+  width: 100%;
+  height: 70%;
+}
+body main .leftSideCard .leftCard .insert .insertForm .formItem {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+body main .leftSideCard .leftCard .insert .insertForm .formItem input ~ label,
+body main .leftSideCard .leftCard .insert .insertForm .formItem select ~ label,
+body main .leftSideCard .leftCard .insert .insertForm .formItem textarea ~ label {
+  position: absolute;
+  top: 0.4rem;
+  left: 0.8rem;
+  padding-inline: 0.25rem;
+}
+body main .leftSideCard .leftCard .insert .insertForm .formItem input ~ label,
+body main .leftSideCard .leftCard .insert .insertForm .formItem select ~ label,
+body main .leftSideCard .leftCard .insert .insertForm .formItem textarea ~ label {
+  top: -0.5rem;
+  left: 0.5rem;
+  background-color: #fff;
+  font-size: 0.65rem;
+}
+body main .leftSideCard .leftCard .insert .insertForm .insertDataBase {
+  cursor: pointer;
+  margin-top: 5px;
+  width: 80%;
+  height: 7%;
+  border: none;
+  background: linear-gradient(120deg, #1341be, #c75ae0);
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+  border-radius: 10px;
+  -webkit-transition: -webkit-box-shadow 0.4s;
+  transition: -webkit-box-shadow 0.4s;
+  transition: box-shadow 0.4s;
+  transition: box-shadow 0.4s, -webkit-box-shadow 0.4s;
+}
+body main .leftSideCard .leftCard .insert .insertForm .insertDataBase:hover {
+  -webkit-box-shadow: 0px 0px 10px 5px #c75ae0;
+          box-shadow: 0px 0px 10px 5px #c75ae0;
+}
+body main .rightSideCard {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 70vw;
+  height: 80vh;
+  background-color: white;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 10px 20px 5px rgb(46, 45, 45);
+          box-shadow: 0px 10px 20px 5px rgb(46, 45, 45);
+}
+body main .rightSideCard .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+body main .rightSideCard .right .listIdentifyCard {
+  background-color: rgb(243, 240, 240);
+  border: 3px solid rgb(102, 101, 101);
+  border-radius: 10px;
+  overflow-y: auto;
+  width: 80%;
+  height: 80%;
+}
+body main .rightSideCard .right .listIdentifyCard .miniInformationCard {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -153,28 +356,28 @@ body main .rightSideCard .listIdentifyCard .miniInformationCard {
           flex-direction: column;
   cursor: pointer;
   margin: 2vh auto;
-  width: 22vw;
-  height: 8vh;
+  width: 95%;
+  height: 12%;
   background-color: rgb(201, 195, 195);
   border-radius: 5px;
   -webkit-transition: All 0.4s;
   transition: All 0.4s;
 }
-body main .rightSideCard .listIdentifyCard .miniInformationCard fieldset {
+body main .rightSideCard .right .listIdentifyCard .miniInformationCard fieldset {
   border: none;
 }
-body main .rightSideCard .listIdentifyCard .miniInformationCard fieldset legend {
+body main .rightSideCard .right .listIdentifyCard .miniInformationCard fieldset legend {
   display: none;
 }
-body main .rightSideCard .listIdentifyCard .miniInformationCard fieldset .startDate,
-body main .rightSideCard .listIdentifyCard .miniInformationCard fieldset .managerId,
-body main .rightSideCard .listIdentifyCard .miniInformationCard fieldset .title,
-body main .rightSideCard .listIdentifyCard .miniInformationCard fieldset .deptId,
-body main .rightSideCard .listIdentifyCard .miniInformationCard fieldset .salary,
-body main .rightSideCard .listIdentifyCard .miniInformationCard fieldset .comments {
+body main .rightSideCard .right .listIdentifyCard .miniInformationCard fieldset .startDate,
+body main .rightSideCard .right .listIdentifyCard .miniInformationCard fieldset .managerId,
+body main .rightSideCard .right .listIdentifyCard .miniInformationCard fieldset .title,
+body main .rightSideCard .right .listIdentifyCard .miniInformationCard fieldset .deptId,
+body main .rightSideCard .right .listIdentifyCard .miniInformationCard fieldset .salary,
+body main .rightSideCard .right .listIdentifyCard .miniInformationCard fieldset .comments {
   display: none;
 }
-body main .rightSideCard .listIdentifyCard .miniInformationCard .topSmallCard {
+body main .rightSideCard .right .listIdentifyCard .miniInformationCard .topSmallCard {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -185,113 +388,139 @@ body main .rightSideCard .listIdentifyCard .miniInformationCard .topSmallCard {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-body main .rightSideCard .listIdentifyCard .miniInformationCard .topSmallCard .lastName {
+body main .rightSideCard .right .listIdentifyCard .miniInformationCard .topSmallCard .lastName {
   margin-right: 20px;
 }
-body main .rightSideCard .listIdentifyCard .miniInformationCard .topSmallCard p {
+body main .rightSideCard .right .listIdentifyCard .miniInformationCard .topSmallCard p {
   margin-bottom: 5px;
 }
-body main .rightSideCard .listIdentifyCard .miniInformationCard p {
+body main .rightSideCard .right .listIdentifyCard .miniInformationCard .downSmallCard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+body main .rightSideCard .right .listIdentifyCard .miniInformationCard .downSmallCard button {
+  cursor: pointer;
+  text-align: center;
+  background-color: rgb(223, 219, 219);
+  margin-right: 20px;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  -webkit-transition: -webkit-box-shadow 0.4s;
+  transition: -webkit-box-shadow 0.4s;
+  transition: box-shadow 0.4s;
+  transition: box-shadow 0.4s, -webkit-box-shadow 0.4s;
+}
+body main .rightSideCard .right .listIdentifyCard .miniInformationCard .downSmallCard button .fa-xmark {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+body main .rightSideCard .right .listIdentifyCard .miniInformationCard .downSmallCard button:hover {
+  -webkit-box-shadow: 0px 0px 6px 2px black;
+          box-shadow: 0px 0px 6px 2px black;
+}
+body main .rightSideCard .right .listIdentifyCard .miniInformationCard p {
   margin-left: 10px;
   color: rgb(102, 101, 101);
   -webkit-transition: color 0.5s;
   transition: color 0.5s;
 }
-body main .rightSideCard .listIdentifyCard .miniInformationCard p span {
+body main .rightSideCard .right .listIdentifyCard .miniInformationCard p span {
   font-weight: 700;
 }
-body main .rightSideCard .listIdentifyCard .miniInformationCard:hover {
+body main .rightSideCard .right .listIdentifyCard .miniInformationCard:hover {
   -webkit-box-shadow: 0px 0px 20px 0px rgb(56, 55, 55);
           box-shadow: 0px 0px 20px 0px rgb(56, 55, 55);
   background-color: rgb(102, 101, 101);
 }
-body main .rightSideCard .listIdentifyCard .miniInformationCard:hover p {
+body main .rightSideCard .right .listIdentifyCard .miniInformationCard:hover p {
   color: white;
 }
-body main .rightSideCard .listIdentifyCard .miniInformationCard:hover fieldset {
+body main .rightSideCard .right .listIdentifyCard .miniInformationCard:hover fieldset {
   color: white;
 }
-body main .rightSideCard .listIdentifyCard .bigInformationCard {
+body main .rightSideCard .right .listIdentifyCard .bigInformationCard {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  height: 18vh;
+  height: 30%;
   -webkit-transition: All 0.4s;
   transition: All 0.4s;
 }
-body main .rightSideCard .listIdentifyCard .bigInformationCard .sameWidth {
+body main .rightSideCard .right .listIdentifyCard .bigInformationCard .icons {
+  display: none;
+}
+body main .rightSideCard .right .listIdentifyCard .bigInformationCard .sameWidth {
   margin: auto;
-  width: 45%;
+  width: 47%;
   height: 90%;
 }
-body main .rightSideCard .listIdentifyCard .bigInformationCard .sameWidth fieldset {
-  border: 1px solid;
-  -webkit-transition: color 0.5s;
-  transition: color 0.5s;
-}
-body main .rightSideCard .listIdentifyCard .bigInformationCard .sameWidth fieldset legend {
-  display: inline;
-  margin-left: 20px;
-}
-body main .rightSideCard .listIdentifyCard .bigInformationCard .sameWidth fieldset .startDate,
-body main .rightSideCard .listIdentifyCard .bigInformationCard .sameWidth fieldset .managerId,
-body main .rightSideCard .listIdentifyCard .bigInformationCard .sameWidth fieldset .title,
-body main .rightSideCard .listIdentifyCard .bigInformationCard .sameWidth fieldset .deptId,
-body main .rightSideCard .listIdentifyCard .bigInformationCard .sameWidth fieldset .salary,
-body main .rightSideCard .listIdentifyCard .bigInformationCard .sameWidth fieldset .comments {
-  display: block;
-}
-body main .rightSideCard .listIdentifyCard .bigInformationCard .sameWidth fieldset p {
-  font-size: 14px;
-}
-body main .rightSideCard .listIdentifyCard .bigInformationCard .sameWidth fieldset .comments {
-  margin-right: 1px;
-  font-size: 13px;
-}
-body main .rightSideCard .listIdentifyCard .bigInformationCard .sameWidth .topSmallCard {
+body main .rightSideCard .right .listIdentifyCard .bigInformationCard .sameWidth fieldset {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  border: 1px solid;
+  -webkit-transition: color 0.5s;
+  transition: color 0.5s;
 }
-body main .rightSideCard .listIdentifyCard .bigInformationCard .sameWidth .topSmallCard .firstName {
-  margin-left: -35px;
+body main .rightSideCard .right .listIdentifyCard .bigInformationCard .sameWidth fieldset legend {
+  display: inline;
+  margin-left: 20px;
 }
-body main .rightSideCard .listIdentifyCard .bigInformationCard .sameWidth .topSmallCard p {
+body main .rightSideCard .right .listIdentifyCard .bigInformationCard .sameWidth fieldset .startDate,
+body main .rightSideCard .right .listIdentifyCard .bigInformationCard .sameWidth fieldset .managerId,
+body main .rightSideCard .right .listIdentifyCard .bigInformationCard .sameWidth fieldset .title,
+body main .rightSideCard .right .listIdentifyCard .bigInformationCard .sameWidth fieldset .deptId,
+body main .rightSideCard .right .listIdentifyCard .bigInformationCard .sameWidth fieldset .salary,
+body main .rightSideCard .right .listIdentifyCard .bigInformationCard .sameWidth fieldset .comments {
+  display: block;
+}
+body main .rightSideCard .right .listIdentifyCard .bigInformationCard .sameWidth fieldset p {
+  font-size: 13px;
+}
+body main .rightSideCard .right .listIdentifyCard .bigInformationCard .sameWidth .salaryFieldset {
+  height: 40%;
+}
+body main .rightSideCard .right .listIdentifyCard .bigInformationCard .sameWidth .commentsFieldset {
+  padding-right: 2px;
+  height: 55%;
+  font-size: 13px;
+}
+body main .rightSideCard .right .listIdentifyCard .bigInformationCard .sameWidth .daneFieldset {
+  height: 95%;
+}
+body main .rightSideCard .right .listIdentifyCard .bigInformationCard .sameWidth .topSmallCard {
+  display: inline;
+}
+body main .rightSideCard .right .listIdentifyCard .bigInformationCard .sameWidth .topSmallCard p {
   margin-bottom: 0;
 }
-body main .rightSideCard .listIdentifyCard .bigInformationCard .sameWidth .comments {
+body main .rightSideCard .right .listIdentifyCard .bigInformationCard .sameWidth .comments {
   height: 85px;
 }
-body main .rightSideCard .insertDataBase {
-  cursor: pointer;
-  margin-top: 35px;
-  width: 40%;
-  height: 7%;
-  border: none;
-  background-color: #2d5cdd;
-  color: white;
-  font-weight: 700;
-  font-size: 20px;
-  border-radius: 10px;
-  -webkit-transition: border 0.3s, -webkit-box-shadow 0.3s;
-  transition: border 0.3s, -webkit-box-shadow 0.3s;
-  transition: box-shadow 0.3s, border 0.3s;
-  transition: box-shadow 0.3s, border 0.3s, -webkit-box-shadow 0.3s;
-}
-body main .rightSideCard .insertDataBase:hover {
-  -webkit-box-shadow: 0px 0px 10px 5px #2d5cdd;
-          box-shadow: 0px 0px 10px 5px #2d5cdd;
-  border: 1px solid #224dc4;
-}
-body main .rightSideCard .author {
+body main .rightSideCard .right .author {
   position: absolute;
   bottom: 0;
   font-weight: 300;
   font-size: 12px;
   color: rgb(102, 101, 101);
 }
-body main .rightSideCard .author span {
+body main .rightSideCard .right .author span {
   font-weight: 700;
 }/*# sourceMappingURL=style.css.map */

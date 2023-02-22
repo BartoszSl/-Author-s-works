@@ -7,7 +7,10 @@
 
 		<title>CrudzikBudzik</title>
 
-        <script src="https://kit.fontawesome.com/9b9dc6ab19.js" crossorigin="anonymous"></script>
+		<script
+			src="https://kit.fontawesome.com/9b9dc6ab19.js"
+			crossorigin="anonymous"
+		></script>
 
 		<link rel="stylesheet" href="./css/style.css" />
 
@@ -21,74 +24,164 @@
 	<body>
 		<div class="backgroundImageShadow"></div>
 		<main>
-			<div class="rightSideCard">
-				<div class="listIdentifyCard">
-					<div class="searchCard">
-                        <form action="">
-                            <input type="text" id="search" placeholder="Search">
+			<div class="rightSideCard leftSideCard">
+				<div class="leftCard">
+					<div class="shadow"></div>
+					<div class="insert">
+						<form class="insertForm" action="">
+							<div class="headingCard">
+								<h2>Dodaj pracownika</h2>
+							</div>
+							<div class="firstGroup">
+								<div class="formItem firstItem">
+									<input type="text" id="firstName" />
+									<label for="firstName">Podaj imię</label>
+								</div>
 
-                            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                        </form>
-                    </div>
-					<div class="miniInformationCard ">
-						<div class="sameWidth leftBigInformationCard">
-							<fieldset>
-								<legend>Dane</legend>
-								<div class="topSmallCard">
-                                    <p class="firstName">Firstname: <span>Bartosz</span></p>
-                                    <p class="lastName">Lastname: <span>Ślusarczyk</span></p>
-                                </div>
-								<p class="userId">Userid: <span>3</span></p>
-								<p class="startDate">start_date: <span>1990-03-03</span></p>
-								<p class="managerId">Managerid: <span>1</span></p>
-								<p class="title">Title: <span>VIP</span></p>
-							</fieldset>
-						</div>
+								<div class="formItem secondItem">
+									<input type="text" id="secondName" />
+									<label for="secondName">Podaj nazwisko</label>
+								</div>
+							</div>
 
-						<div class="sameWidth rightBigInformationCard">
-							<fieldset>
-								<legend>Salary</legend>
-								<p class="deptId">Deptid: <span>43</span></p>
-								<p class="salary">Salary: <span>646732</span></p>
-							</fieldset>
-							<fieldset class="comments">
-								<legend>Comments</legend>
-                                <p class="comments">pofgnapeogn gna knglak engk ne;k gns;elkg nsek;lg </p>
-							</fieldset>
-						</div>
+							<div class="secondGroup">
+								<div class="formItem userItem">
+									<input type="number" id="userId" />
+									<label for="userId">Podaj User ID</label>
+								</div>
+								<div class="formItem titleItem">
+									<select name="title" id="title">
+										<option value="">---------</option>
+									</select>
+									<label for="title">Podaj title</label>
+								</div>
+
+								<div class="formItem dateItem">
+									<input type="date" id="startDate" />
+									<label for="startDate">Podaj datę startu</label>
+								</div>
+							</div>
+
+							<div class="thirdGroup">
+								<div class="formItem salaryItem">
+									<input type="number" id="salary" />
+									<label for="salary">Podaj zarobki</label>
+								</div>
+								<div class="formItem managerItem">
+									<select name="managerId" id="managerId">
+										<option value="">-------</option>
+									</select>
+									<label for="managerId">Podaj managerId</label>
+								</div>
+							</div>
+							<div class="fourthGroup">
+								<div class="formItem deptItem">
+									<select name="deptId" id="deptId">
+										<option value="">---------</option>
+									</select>
+									<label for="deptId">Podaj departament </label>
+								</div>
+								<div class="formItem">
+									<textarea
+										class="inputsStyles commentsInput"
+										name="comments"
+										id="comments"
+										cols="30"
+										rows="10"
+										style="resize: none"
+										required
+									></textarea>
+									<label for="commnets">Komentarz</label>
+								</div>
+							</div>
+
+							<button type="submit" class="insertDataBase">
+								Dodaj Pracownika
+							</button>
+						</form>
 					</div>
-
-                    <div class="miniInformationCard ">
-						<div class="sameWidth leftBigInformationCard">
-							<fieldset>
-								<legend>Dane</legend>
-								<div class="topSmallCard">
-                                    <p class="firstName">Firstname: <span>Bartosz</span></p>
-                                    <p class="lastName">Lastname: <span>Ślusarczyk</span></p>
-                                </div>
-								<p class="userId">Userid: <span>3</span></p>
-								<p class="startDate">start_date: <span>1990-03-03</span></p>
-								<p class="managerId">Managerid: <span>1</span></p>
-								<p class="title">Title: <span>VIP</span></p>
-							</fieldset>
-						</div>
-
-						<div class="sameWidth rightBigInformationCard">
-							<fieldset>
-								<legend>Salary</legend>
-								<p class="deptId">Deptid: <span>43</span></p>
-								<p class="salary">Salary: <span>646732</span></p>
-							</fieldset>
-							<fieldset class="comments">
-								<legend>Comments</legend>
-                                <p class="comments">pofgnapeogn gna knglak engk ne;k gns;elkg nsek;lg </p>
-							</fieldset>
-						</div>
-					</div>
-                   
 				</div>
-				<button type="submit" class="insertDataBase">Dodaj Pracownika</button>
-                <h4 class="author">Author: <span>Bartosz Ślusarczyk &copy;</span></h4>
+
+				<div class="right">
+					<div class="listIdentifyCard">
+						<div class="headingCard">
+							<form action="">
+								<input type="text" id="search" placeholder="Search" />
+
+								<button type="submit">
+									<i class="fa-solid fa-magnifying-glass"></i>
+								</button>
+							</form>
+						</div>
+						<div class="miniInformationCard">
+							<div class="sameWidth leftBigInformationCard">
+								<fieldset class="daneFieldset">
+									<legend>Dane</legend>
+									<div class="topSmallCard">
+										<p class="firstName">Firstname: <span>Bartosz</span></p>
+										<p class="lastName">Lastname: <span>Ślusarczyk</span></p>
+									</div>
+									<p class="userId">Userid: <span>3</span></p>
+									<p class="startDate">start_date: <span>1990-03-03</span></p>
+									<p class="managerId">Managerid: <span>1</span></p>
+									<p class="title">Title: <span>VIP</span></p>
+								</fieldset>
+							</div>
+
+							<div class="sameWidth rightBigInformationCard">
+								<fieldset class="salaryFieldset">
+									<legend>Salary</legend>
+									<p class="deptId">Deptid: <span>43</span></p>
+									<p class="salary">Salary: <span>646732</span></p>
+								</fieldset>
+								<fieldset class="commentsFieldset">
+									<legend>Comments</legend>
+									<p class="comments">
+										pofgnapeogn gna knglak engk ne;k gns;elkg nsek;lg
+									</p>
+								</fieldset>
+							</div>
+						</div>
+
+						<div class="miniInformationCard">
+							<div class="sameWidth leftBigInformationCard">
+								<fieldset class="daneFieldset">
+									<legend>Dane</legend>
+									<div class="topSmallCard">
+										<p class="firstName">Firstname: <span>Bartosz</span></p>
+										<p class="lastName">Lastname: <span>Ślusarczyk</span></p>
+									</div>
+									<div class="downSmallCard">
+										<p class="userId">UserID: <span>3</span></p>
+										<div class="icons">
+											<button><i class="fa-solid fa-pen"></i></button>
+											<button><i class="fa-solid fa-xmark "></i></button>
+										</div>
+									</div>
+									<p class="startDate">start_date: <span>1990-03-03</span></p>
+									<p class="managerId">ManagerID: <span>1</span></p>
+									<p class="title">Title: <span>VIP</span></p>
+								</fieldset>
+							</div>
+
+							<div class="sameWidth rightBigInformationCard">
+								<fieldset class="salaryFieldset">
+									<legend>Salary</legend>
+									<p class="deptId">DeptIDI: <span>43</span></p>
+									<p class="salary">Salary: <span>646732</span></p>
+								</fieldset>
+								<fieldset class="commentsFieldset">
+									<legend>Comments</legend>
+									<p class="comments">
+										pofgnapeogn gna knglak engk ne;k gns;elkg nsek;lg
+									</p>
+								</fieldset>
+							</div>
+						</div>
+					</div>
+
+					<h4 class="author">Author: <span>Bartosz Ślusarczyk &copy;</span></h4>
+				</div>
 			</div>
 		</main>
 

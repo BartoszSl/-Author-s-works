@@ -25,149 +25,263 @@ body {
 		background-color: $background-color;
 		z-index: -1;
 	}
-	main {
-		.rightSideCard {
-            position: relative;
+
+	.headingCard {
+		height: 12%;
+		width: 100%;
+		background-color: $content-color;
+		h2 {
+			width: 100%;
+			height: 100%;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			flex-direction: column;
-			width: 30vw;
-			height: 80vh;
-			background-color: $lightGrey;
-			border-radius: 10px;
-			box-shadow: 7px 7px 10px 0px rgb(46, 45, 45);
-			.listIdentifyCard {
-				width: 80%;
-				height: 80%;
-				background-color: $cardColor;
-				border: 3px solid $content-color;
+			color: white;
+			text-transform: uppercase;
+		}
+		form {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			input {
+				width: 70%;
+				height: 50%;
 				border-radius: 10px;
-				overflow-y: auto;
-				.searchCard {
-					height: 7vh;
-					background-color: $content-color;
-					form {
-						width: 100%;
-						height: 100%;
+				border: none;
+				padding-left: 10px;
+				font-size: 16px;
+				font-weight: 700;
+				color: black;
+				transition: box-shadow 0.3s;
+			}
+
+			input:focus {
+				border: 1px solid black;
+				box-shadow: 0px 0px 9px 3px rgba(56, 55, 55, 1);
+			}
+
+			input:hover {
+				box-shadow: 0px 0px 9px 3px rgba(56, 55, 55, 1);
+			}
+
+			input::placeholder {
+				color: black;
+				font-weight: 300;
+			}
+
+			button {
+				cursor: pointer;
+				width: 10%;
+				height: 50%;
+				margin-left: 10%;
+				border: none;
+				border-radius: 10px;
+				transition: box-shadow 0.3s;
+				i {
+					transform: scale(1.5);
+				}
+			}
+			button:hover {
+				box-shadow: 0px 0px 9px 3px rgba(56, 55, 55, 1);
+			}
+		}
+	}
+
+	main {
+		.leftSideCard {
+			position: relative;
+			width: 70vw;
+			.leftCard {
+				width: 100%;
+				height: 100%;
+				background-image: url('../img/pexels-ron-lach-10533148.jpg');
+				background-position: center;
+				background-size: cover;
+				background-attachment: fixed;
+				border-top-left-radius: 8px;
+				border-bottom-left-radius: 8px;
+				box-shadow: 5px 0px 10px -4px $background-color;
+				z-index: 1;
+				.shadow {
+					position: absolute;
+					width: 50%;
+					height: 100%;
+					background-color: $background-color;
+					z-index: -3;
+				}
+				.insert {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					height: 100%;
+					.insertForm {
 						display: flex;
+						flex-direction: column;
 						align-items: center;
-						justify-content: center;
-						input {
-							width: 70%;
-							height: 50%;
-							border-radius: 10px;
-							border: none;
-							padding-left: 10px;
-							font-size: 16px;
-							font-weight: 700;
-							color: black;
-							transition: box-shadow 0.3s;
+						background-color: white;
+						border: 3px solid $content-color;
+						border-radius: 10px;
+						width: 80%;
+						height: 80%;
+						label {
+							font-size: 12px;
 						}
-
-						input:focus {
+						input,
+						select,
+						textarea {
+							border-radius: 5px;
 							border: 1px solid black;
-							box-shadow: 0px 0px 9px 3px rgba(56, 55, 55, 1);
+							padding: 0 10px;
+							font-size: 12px;
+							width: 150px;
+							height: 30px;
+							font-size: 16px;
+						}
+						.firstGroup,
+						.secondGroup,
+						.thirdGroup {
+							display: flex;
+							width: 86%;
+							justify-content: space-between;
+							margin-bottom: 20px;
 						}
 
-						input:hover {
-							box-shadow: 0px 0px 9px 3px rgba(56, 55, 55, 1);
+						.fourthGroup {
+							display: flex;
+							flex-direction: column;
+							width: 86%;
 						}
-
-						input::placeholder {
-							color: black;
-							font-weight: 300;
-						}
-
-						button {
-							cursor: pointer;
-							width: 10%;
-							height: 50%;
-							margin-left: 10%;
-							border: none;
-							border-radius: 10px;
-							transition: box-shadow 0.3s;
-							i {
-								transform: scale(1.5);
+						.firstGroup {
+							margin-top: 50px;
+							input {
+								width: 150px;
+								height: 30px;
 							}
 						}
-						button:hover {
-							box-shadow: 0px 0px 9px 3px rgba(56, 55, 55, 1);
+						.secondGroup {
+							.userItem {
+								input {
+									width: 75px;
+								}
+								label {
+									font-size: 8px;
+								}
+							}
+							.titleItem {
+								select {
+									width: 90px;
+								}
+							}
+							.dateItem {
+								input {
+									width: 100px;
+								}
+								label {
+									font-size: 9px;
+								}
+							}
 						}
-					}
-				}
+						.fourthGroup {
+							padding: 0 7%;
+							width: 100%;
+							.deptItem {
+								margin-bottom: 20px;
+								width: 100%;
+								select {
+									text-align: center;
+									width: 100%;
+								}
+							}
+							textarea {
+								padding-top: 10px;
+								width: 100%;
+								height: 70%;
+							}
+						}
+						.formItem {
+							position: relative;
+							display: flex;
+							flex-direction: column;
+							input ~ label,
+							select ~ label,
+							textarea ~ label {
+								position: absolute;
+								top: 0.4rem;
+								left: 0.8rem;
+								padding-inline: 0.25rem;
+							}
+							input ~ label,
+							select ~ label,
+							textarea ~ label {
+								top: -0.5rem;
+								left: 0.5rem;
+								background-color: #fff;
+								font-size: 0.65rem;
+							}
+						}
 
-				.miniInformationCard {
-					display: flex;
-					justify-content: center;
-					flex-direction: column;
-					cursor: pointer;
-					margin: 2vh auto;
-					width: 22vw;
-					height: 8vh;
-					background-color: $identifyCard;
-					border-radius: 5px;
-					transition: All 0.4s;
-					fieldset {
-						border: none;
-						legend {
-							display: none;
-						}
-						.startDate,
-						.managerId,
-						.title,
-						.deptId,
-						.salary,
-						.comments {
-							display: none;
-						}
-					}
-					.topSmallCard {
-						display: flex;
-						align-items: center;
-						justify-content: space-between;
-						.lastName {
-							margin-right: 20px;
-						}
-						p {
-							margin-bottom: 5px;
-						}
-					}
-					p {
-						margin-left: 10px;
-						color: $content-color;
-						// font-weight: 700;
-						transition: color 0.5s;
-						span {
+						.insertDataBase {
+							cursor: pointer;
+							margin-top: 5px;
+							width: 80%;
+							height: 7%;
+							border: none;
+							background: $gradient;
+							color: white;
 							font-weight: 700;
+							font-size: 20px;
+							border-radius: 10px;
+							transition: box-shadow 0.4s;
+						}
+						.insertDataBase:hover {
+							box-shadow: 0px 0px 10px 5px $heading-color;
 						}
 					}
 				}
-				.miniInformationCard:hover {
-					box-shadow: 0px 0px 20px 0px $darkGrey;
-					background-color: $content-color;
-					p {
-						color: white;
-					}
-					fieldset {
-						color: white;
-					}
-				}
-				.bigInformationCard {
-					flex-direction: row;
-					height: 18vh;
-					transition: All 0.4s;
-					.sameWidth {
-						margin: auto;
-						width: 45%;
-						height: 90%;
+			}
+		}
+		.rightSideCard {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 70vw;
+			height: 80vh;
+			background-color: white;
+			border-radius: 10px;
+			box-shadow: 0px 10px 20px 5px rgb(46, 45, 45);
+			.right {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+				height: 100%;
+				width: 100%;
+				.listIdentifyCard {
+					background-color: $lightGrey;
+					border: 3px solid $content-color;
+					border-radius: 10px;
+					overflow-y: auto;
+					width: 80%;
+					height: 80%;
 
+					.miniInformationCard {
+						display: flex;
+						justify-content: center;
+						flex-direction: column;
+						cursor: pointer;
+						margin: 2vh auto;
+						width: 95%;
+						height: 12%;
+						background-color: $identifyCard;
+						border-radius: 5px;
+						transition: All 0.4s;
 						fieldset {
-							border: 1px solid;
-							transition: color 0.5s;
+							border: none;
 							legend {
-								display: inline;
-								margin-left: 20px;
+								display: none;
 							}
 							.startDate,
 							.managerId,
@@ -175,59 +289,134 @@ body {
 							.deptId,
 							.salary,
 							.comments {
-								display: block;
-							}
-							p {
-								font-size: 14px;
-							}
-							.comments {
-								margin-right: 1px;
-								font-size: 13px;
+								display: none;
 							}
 						}
 						.topSmallCard {
-							flex-direction: column;
-							.firstName {
-								margin-left: -35px;
+							display: flex;
+							align-items: center;
+							justify-content: space-between;
+							.lastName {
+								margin-right: 20px;
 							}
 							p {
-								margin-bottom: 0;
+								margin-bottom: 5px;
 							}
 						}
-						.comments {
-							height: 85px;
+						.downSmallCard {
+							display: flex;
+							align-items: center;
+							justify-content: space-between;
+
+							button {
+								cursor: pointer;
+								text-align: center;
+								background-color: $cardColor;
+								margin-right: 20px;
+								width: 30px;
+								height: 30px;
+								border-radius: 5px;
+								border: none;
+								transition: box-shadow 0.4s;
+								.fa-xmark {
+									transform: scale(1.2);
+								}
+							}
+							button:hover {
+								box-shadow: 0px 0px 6px 2px black;
+							}
+						}
+						p {
+							margin-left: 10px;
+							color: $content-color;
+							// font-weight: 700;
+							transition: color 0.5s;
+							span {
+								font-weight: 700;
+							}
+						}
+					}
+					.miniInformationCard:hover {
+						box-shadow: 0px 0px 20px 0px $darkGrey;
+						background-color: $content-color;
+						p {
+							color: white;
+						}
+						fieldset {
+							color: white;
+						}
+					}
+					.bigInformationCard {
+						flex-direction: row;
+						height: 30%;
+						transition: All 0.4s;
+						.icons {
+							display: none;
+						}
+						.sameWidth {
+							margin: auto;
+							width: 47%;
+							height: 90%;
+
+							fieldset {
+								display: flex;
+								// align-items: center;
+								justify-content: center;
+								flex-direction: column;
+								border: 1px solid;
+								transition: color 0.5s;
+								legend {
+									display: inline;
+									margin-left: 20px;
+								}
+								.startDate,
+								.managerId,
+								.title,
+								.deptId,
+								.salary,
+								.comments {
+									display: block;
+								}
+								p {
+									font-size: 13px;
+								}
+							}
+							.salaryFieldset {
+								height: 40%;
+							}
+							.commentsFieldset {
+								padding-right: 2px;
+								height: 55%;
+								font-size: 13px;
+							}
+							.daneFieldset {
+								height: 95%;
+							}
+							.topSmallCard {
+								display: inline;
+								p {
+									margin-bottom: 0;
+								}
+							}
+
+							.comments {
+								height: 85px;
+							}
 						}
 					}
 				}
-			}
 
-			.insertDataBase {
-				cursor: pointer;
-				margin-top: 35px;
-				width: 40%;
-				height: 7%;
-				border: none;
-				background-color: $decoration-color;
-				color: white;
-				font-weight: 700;
-				font-size: 20px;
-				border-radius: 10px;
-				transition: box-shadow 0.3s, border 0.3s;
+				.author {
+					position: absolute;
+					bottom: 0;
+					font-weight: 300;
+					font-size: 12px;
+					color: $content-color;
+					span {
+						font-weight: 700;
+					}
+				}
 			}
-			.insertDataBase:hover {
-				box-shadow: 0px 0px 10px 5px $decoration-color;
-				border: 1px solid #224dc4;
-			}
-            .author {
-                position: absolute;
-                bottom: 0;
-                font-weight: 300;
-                font-size: 12px;
-                color: $content-color;
-                span {
-                    font-weight: 700;
-                }
-            }
 		}
 	}
 }

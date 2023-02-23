@@ -259,6 +259,7 @@ body {
 				flex-direction: column;
 				height: 100%;
 				width: 100%;
+
 				.listIdentifyCard {
 					background-color: $lightGrey;
 					border: 3px solid $content-color;
@@ -266,7 +267,11 @@ body {
 					overflow-y: auto;
 					width: 80%;
 					height: 80%;
-
+					.headingCard {
+						position: sticky;
+						top: 0;
+						z-index: 1;
+					}
 					.miniInformationCard {
 						display: flex;
 						justify-content: center;
@@ -329,8 +334,8 @@ body {
 						p {
 							margin-left: 10px;
 							color: $content-color;
-							// font-weight: 700;
 							transition: color 0.5s;
+							font-size: 14px;
 							span {
 								font-weight: 700;
 							}
@@ -378,7 +383,7 @@ body {
 									display: block;
 								}
 								p {
-									font-size: 13px;
+									font-size: 12px;
 								}
 							}
 							.salaryFieldset {

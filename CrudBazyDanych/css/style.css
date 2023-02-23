@@ -343,6 +343,11 @@ body main .rightSideCard .right .listIdentifyCard {
   width: 80%;
   height: 80%;
 }
+body main .rightSideCard .right .listIdentifyCard .headingCard {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
 body main .rightSideCard .right .listIdentifyCard .miniInformationCard {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -432,6 +437,7 @@ body main .rightSideCard .right .listIdentifyCard .miniInformationCard p {
   color: rgb(102, 101, 101);
   -webkit-transition: color 0.5s;
   transition: color 0.5s;
+  font-size: 14px;
 }
 body main .rightSideCard .right .listIdentifyCard .miniInformationCard p span {
   font-weight: 700;
@@ -492,7 +498,7 @@ body main .rightSideCard .right .listIdentifyCard .bigInformationCard .sameWidth
   display: block;
 }
 body main .rightSideCard .right .listIdentifyCard .bigInformationCard .sameWidth fieldset p {
-  font-size: 13px;
+  font-size: 12px;
 }
 body main .rightSideCard .right .listIdentifyCard .bigInformationCard .sameWidth .salaryFieldset {
   height: 40%;

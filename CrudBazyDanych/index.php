@@ -1,3 +1,23 @@
+<?php
+$host = 'localhost';
+$dbname = 'testowa';
+$user = 'root';
+$password = '';
+
+
+  $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $password);
+
+  $stmt = $pdo->query("SELECT *, date(start_date) as date_without_hours FROM emp");
+  
+  $rows = $stmt->fetchAll();
+ 
+
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="pl">
 	<head>
@@ -113,71 +133,85 @@
 								</button>
 							</form>
 						</div>
+						<?php
+						 foreach ($rows as $row) {
+							
+						  ?>
 						<div class="miniInformationCard">
 							<div class="sameWidth leftBigInformationCard">
 								<fieldset class="daneFieldset">
 									<legend>Dane</legend>
 									<div class="topSmallCard">
-										<p class="firstName">Firstname: <span>Bartosz</span></p>
-										<p class="lastName">Lastname: <span>Ślusarczyk</span></p>
+										<p class="firstName">Firstname: <span><?php echo $row['first_name'] ?></span></p>
+										<p class="lastName">Lastname: <span><?php echo $row['last_name'] ?></span></p>
 									</div>
-									<p class="userId">Userid: <span>3</span></p>
-									<p class="startDate">start_date: <span>1990-03-03</span></p>
-									<p class="managerId">Managerid: <span>1</span></p>
-									<p class="title">Title: <span>VIP</span></p>
-								</fieldset>
-							</div>
-
-							<div class="sameWidth rightBigInformationCard">
-								<fieldset class="salaryFieldset">
-									<legend>Salary</legend>
-									<p class="deptId">Deptid: <span>43</span></p>
-									<p class="salary">Salary: <span>646732</span></p>
-								</fieldset>
-								<fieldset class="commentsFieldset">
-									<legend>Comments</legend>
-									<p class="comments">
-										pofgnapeogn gna knglak engk ne;k gns;elkg nsek;lg
-									</p>
-								</fieldset>
-							</div>
-						</div>
-
-						<div class="miniInformationCard">
-							<div class="sameWidth leftBigInformationCard">
-								<fieldset class="daneFieldset">
-									<legend>Dane</legend>
-									<div class="topSmallCard">
-										<p class="firstName">Firstname: <span>Bartosz</span></p>
-										<p class="lastName">Lastname: <span>Ślusarczyk</span></p>
-									</div>
-									<div class="downSmallCard">
-										<p class="userId">UserID: <span>3</span></p>
+							
+											<div class="downSmallCard">
+										<p class="userId">UserID: <span><?php if($row['userid'] === NULL){
+											echo "NULL";
+											}else{
+												echo $row['userid']; 
+											}?></span></p>
 										<div class="icons">
 											<button><i class="fa-solid fa-pen"></i></button>
 											<button><i class="fa-solid fa-xmark "></i></button>
 										</div>
 									</div>
-									<p class="startDate">start_date: <span>1990-03-03</span></p>
-									<p class="managerId">ManagerID: <span>1</span></p>
-									<p class="title">Title: <span>VIP</span></p>
+									<p class="startDate">start_date: 
+									<span>
+									<?php if($row['date_without_hours'] === NULL){
+											echo "NULL";
+											}else{
+												echo $row['date_without_hours']; 
+											}?>
+									</span></p>
+									<p class="managerId">Managerid: <span>
+										<?php if($row['manager_id'] === NULL){
+											echo "NULL";
+											}else{
+												echo $row['manager_id'];
+												} ?></span></p>
+
+
+									<p class="title">Title: <span>
+									<?php if($row['title'] === NULL){
+											echo "NULL";
+											}else{
+												echo $row['title']; 
+											}?>		
+								</span></p>
 								</fieldset>
 							</div>
 
 							<div class="sameWidth rightBigInformationCard">
 								<fieldset class="salaryFieldset">
 									<legend>Salary</legend>
-									<p class="deptId">DeptIDI: <span>43</span></p>
-									<p class="salary">Salary: <span>646732</span></p>
+									<p class="deptId">Deptid: <span>
+									<?php if($row['dept_id'] === NULL){
+											echo "NULL";
+											}else{
+												echo $row['dept_id']; 
+											}?>	
+								</span></p>
+									<p class="salary">Salary: <span>
+									<?php if($row['salary'] === NULL){
+											echo "NULL";
+											}else{
+												echo $row['salary']; 
+											}?>	
+								</span></p>
 								</fieldset>
 								<fieldset class="commentsFieldset">
 									<legend>Comments</legend>
 									<p class="comments">
-										pofgnapeogn gna knglak engk ne;k gns;elkg nsek;lg
+										<?php echo $row['comments'] ?>
 									</p>
 								</fieldset>
 							</div>
 						</div>
+						 <?php }?>
+						
+						
 					</div>
 
 					<h4 class="author">Author: <span>Bartosz Ślusarczyk &copy;</span></h4>

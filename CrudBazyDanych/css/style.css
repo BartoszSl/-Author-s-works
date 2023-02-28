@@ -31,9 +31,12 @@ body .backgroundImageShadow {
   z-index: -1;
 }
 body .headingCard {
+  position: sticky;
+  top: 0;
   height: 12%;
   width: 100%;
   background-color: rgb(102, 101, 101);
+  z-index: 4;
 }
 body .headingCard h2 {
   width: 100%;
@@ -340,13 +343,8 @@ body main .rightSideCard .right .listIdentifyCard {
   border: 3px solid rgb(102, 101, 101);
   border-radius: 10px;
   overflow-y: auto;
-  width: 80%;
+  width: 92%;
   height: 80%;
-}
-body main .rightSideCard .right .listIdentifyCard .headingCard {
-  position: sticky;
-  top: 0;
-  z-index: 1;
 }
 body main .rightSideCard .right .listIdentifyCard .miniInformationCard {
   display: -webkit-box;
@@ -437,7 +435,6 @@ body main .rightSideCard .right .listIdentifyCard .miniInformationCard p {
   color: rgb(102, 101, 101);
   -webkit-transition: color 0.5s;
   transition: color 0.5s;
-  font-size: 14px;
 }
 body main .rightSideCard .right .listIdentifyCard .miniInformationCard p span {
   font-weight: 700;
@@ -498,7 +495,7 @@ body main .rightSideCard .right .listIdentifyCard .bigInformationCard .sameWidth
   display: block;
 }
 body main .rightSideCard .right .listIdentifyCard .bigInformationCard .sameWidth fieldset p {
-  font-size: 12px;
+  font-size: 13px;
 }
 body main .rightSideCard .right .listIdentifyCard .bigInformationCard .sameWidth .salaryFieldset {
   height: 40%;
@@ -519,6 +516,9 @@ body main .rightSideCard .right .listIdentifyCard .bigInformationCard .sameWidth
 }
 body main .rightSideCard .right .listIdentifyCard .bigInformationCard .sameWidth .comments {
   height: 85px;
+}
+body main .rightSideCard .right .listIdentifyCard::-webkit-scrollbar {
+  width: 0;
 }
 body main .rightSideCard .right .author {
   position: absolute;

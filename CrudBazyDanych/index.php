@@ -11,7 +11,8 @@ $password = '';
   
   $rows = $stmt->fetchAll();
  
-
+  $dept = $db->query('SELECT dept.id, dept.name AS dept_name, region.name AS region_name from dept Right OUTER JOIN region ON dept.region_id = region.id');
+  $deptDane = $dept->fetchAll();
 
 
 ?>
@@ -98,6 +99,9 @@ $password = '';
 								<div class="formItem deptItem">
 									<select name="deptId" id="deptId">
 										<option value="">---------</option>
+										 <?php foreach($deptDane as $d): ?> -->
+                    					<option value="<?= $d['id'] ?>"><?= $d['region_name'] ?>-<?= $d['dept_name'] ?></option>
+                    					<?php endforeach ?>
 									</select>
 									<label for="deptId">Podaj departament </label>
 								</div>

@@ -95,7 +95,7 @@ body {
 	main {
 		.leftSideCard {
 			position: relative;
-			width: 70vw;
+			width: 1000px;
 			.leftCard {
 				width: 100%;
 				height: 100%;
@@ -250,8 +250,8 @@ body {
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			width: 70vw;
-			height: 80vh;
+			width: 1000px;
+			height: 760px;
 			background-color: white;
 			border-radius: 10px;
 			box-shadow: 0px 10px 20px 5px rgb(46, 45, 45);
@@ -278,17 +278,16 @@ body {
 						cursor: pointer;
 						margin: 2vh auto;
 						width: 95%;
-						height: 12%;
+						height: 14%;
 						background-color: $identifyCard;
 						border-radius: 5px;
-						
 						transition: All 0.4s;
 						fieldset {
 							border: none;
 							legend {
 								display: none;
 							}
-							.startDate,
+							.start_date,
 							.managerId,
 							.title,
 							.deptId,
@@ -307,6 +306,11 @@ body {
 							p {
 								margin-bottom: 5px;
 							}
+							.firstNameSearch {
+								background-color: #e9e63e;
+								padding: 5px;
+								color: red;
+							}
 						}
 						.downSmallCard {
 							display: flex;
@@ -323,6 +327,7 @@ body {
 								border-radius: 5px;
 								border: none;
 								transition: box-shadow 0.4s;
+								z-index: 3;
 								.fa-xmark {
 									transform: scale(1.2);
 								}
@@ -350,6 +355,7 @@ body {
 						fieldset {
 							color: white;
 						}
+						
 					}
 					.bigInformationCard {
 						flex-direction: row;
@@ -374,7 +380,7 @@ body {
 									display: inline;
 									margin-left: 20px;
 								}
-								.startDate,
+								.start_date,
 								.managerId,
 								.title,
 								.deptId,
@@ -401,6 +407,11 @@ body {
 								display: inline;
 								p {
 									margin-bottom: 0;
+								}
+								.firstNameSearch {
+									background-color: $identifyCard;
+									padding: 2px;
+									color:  $content-color;
 								}
 							}
 

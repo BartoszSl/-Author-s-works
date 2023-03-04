@@ -1,20 +1,24 @@
 <?php
-$host = 'localhost';
-$dbname = 'testowa';
-$user = 'root';
-$password = '';
 
+	$search_firstName = $_POST['search_firstName'] ?? null;
 
-  $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $password);
+  $pdo = new PDO("mysql:host=localhost;dbname=testowa;charset=utf8", 'root', '');
 
   $stmt = $pdo->query("SELECT *, date(start_date) as date_without_hours FROM emp");
   
   $rows = $stmt->fetchAll();
  
-  $dept = $db->query('SELECT dept.id, dept.name AS dept_name, region.name AS region_name from dept Right OUTER JOIN region ON dept.region_id = region.id');
+  $dept = $pdo->query('SELECT dept.id, dept.name AS dept_name, region.name AS region_name from dept Right OUTER JOIN region ON dept.region_id = region.id');
   $deptDane = $dept->fetchAll();
 
+  $title = $pdo->query('SELECT * FROM title');
+  $titleDane = $title->fetchAll();
 
+  $manager = $pdo->query('SELECT * FROM emp ;');
+  $managerDane = $manager->fetchAll();
+
+  $wynikSearch = $pdo->query("SELECT *, date(start_date) as date_without_hours FROM emp WHERE first_name='$search_firstName'");
+  $searchDane =  $wynikSearch->fetchAll();
 ?>
 
 
@@ -49,48 +53,54 @@ $password = '';
 				<div class="leftCard">
 					<div class="shadow"></div>
 					<div class="insert">
-						<form class="insertForm" action="">
+						<form class="insertForm" action="insert.php" method="post">
 							<div class="headingCard">
 								<h2>Dodaj pracownika</h2>
 							</div>
 							<div class="firstGroup">
 								<div class="formItem firstItem">
-									<input type="text" id="firstName" />
+									<input type="text" id="firstName" name="first_name" required />
 									<label for="firstName">Podaj imię</label>
 								</div>
 
 								<div class="formItem secondItem">
-									<input type="text" id="secondName" />
+									<input type="text" id="secondName" name="last_name" required />
 									<label for="secondName">Podaj nazwisko</label>
 								</div>
 							</div>
 
 							<div class="secondGroup">
 								<div class="formItem userItem">
-									<input type="number" id="userId" />
+									<input type="number" id="userId" name="userId"/>
 									<label for="userId">Podaj User ID</label>
 								</div>
 								<div class="formItem titleItem">
 									<select name="title" id="title">
 										<option value="">---------</option>
+										<?php foreach($titleDane as $d): ?>
+                    					<option value="<?= $d['name'] ?>" required ><?= $d['name'] ?></option>
+                    					<?php endforeach ?>
 									</select>
 									<label for="title">Podaj title</label>
 								</div>
 
 								<div class="formItem dateItem">
-									<input type="date" id="startDate" />
+									<input type="date" id="start_date" name="start_date " required />
 									<label for="startDate">Podaj datę startu</label>
 								</div>
 							</div>
 
 							<div class="thirdGroup">
 								<div class="formItem salaryItem">
-									<input type="number" id="salary" />
+									<input type="number" id="salary" name="salary" required />
 									<label for="salary">Podaj zarobki</label>
 								</div>
 								<div class="formItem managerItem">
 									<select name="managerId" id="managerId">
 										<option value="">-------</option>
+										  	<?php foreach($managerDane as $d): ?> 
+                    						<option value="<?= $d['id'] ?>" required ><?= $d['id'] ?> - <?= $d['last_name'] ?></option>
+                    						<?php endforeach ?> 
 									</select>
 									<label for="managerId">Podaj managerId</label>
 								</div>
@@ -100,7 +110,7 @@ $password = '';
 									<select name="deptId" id="deptId">
 										<option value="">---------</option>
 										 <?php foreach($deptDane as $d): ?> -->
-                    					<option value="<?= $d['id'] ?>"><?= $d['region_name'] ?>-<?= $d['dept_name'] ?></option>
+                    					<option value="<?= $d['id'] ?>" required ><?= $d['region_name'] ?>-<?= $d['dept_name'] ?></option>
                     					<?php endforeach ?>
 									</select>
 									<label for="deptId">Podaj departament </label>
@@ -119,7 +129,7 @@ $password = '';
 								</div>
 							</div>
 
-							<button type="submit" class="insertDataBase">
+							<button type="submit" class="insertDataBase" name="empAdd">
 								Dodaj Pracownika
 							</button>
 						</form>
@@ -129,16 +139,103 @@ $password = '';
 				<div class="right">
 					<div class="listIdentifyCard">
 						<div class="headingCard">
-							<form action="">
-								<input type="text" id="search" placeholder="Search" />
+							<form method="post">
+								<input type="text" id="search" placeholder="Search by FirstName" name="search_firstName" />
 
-								<button type="submit">
+								<button type="submit" name="wyslij">
 									<i class="fa-solid fa-magnifying-glass"></i>
-								</button>
+								</button>				
 							</form>
 						</div>
 						<?php
-						 foreach ($rows as $row) {
+
+						
+						if(isset($_POST['wyslij'])){
+							
+							
+
+							foreach ($searchDane as $row):
+							
+								?>
+							  <div class="miniInformationCard">
+								  <div class="sameWidth leftBigInformationCard">
+									  <fieldset class="daneFieldset">
+										  <legend>Dane</legend>
+										  <div class="topSmallCard">
+											  <p class="firstName">Firstname: <span class="firstNameSearch"><?php echo $row['first_name'] ?></span></p>
+											  <p class="lastName">Lastname: <span><?php echo $row['last_name'] ?></span></p>
+										  </div>
+								  
+												  <div class="downSmallCard">
+											  <p class="userId">UserID: <span><?php if($row['userid'] === NULL){
+												  echo "NULL";
+												  }else{
+													  echo $row['userid']; 
+												  }?></span></p>
+											  <div class="icons">
+												  <button><i class="fa-solid fa-pen"></i></button>
+												  <button><i class="fa-solid fa-xmark "></i></button>
+											  </div>
+										  </div>
+										  <p class="startDate">start_date: 
+										  <span>
+										  <?php if($row['date_without_hours'] === NULL){
+												  echo "NULL";
+												  }else{
+													  echo $row['date_without_hours']; 
+												  }?>
+										  </span></p>
+										  <p class="managerId">Managerid: <span>
+											  <?php if($row['manager_id'] === NULL){
+												  echo "NULL";
+												  }else{
+													  echo $row['manager_id'];
+													  } ?></span></p>
+	  
+	  
+										  <p class="title">Title: <span>
+										  <?php if($row['title'] === NULL){
+												  echo "NULL";
+												  }else{
+													  echo $row['title']; 
+												  }?>		
+									  </span></p>
+									  </fieldset>
+								  </div>
+	  
+								  <div class="sameWidth rightBigInformationCard">
+									  <fieldset class="salaryFieldset">
+										  <legend>Salary</legend>
+										  <p class="deptId">Deptid: <span>
+										  <?php if($row['dept_id'] === NULL){
+												  echo "NULL";
+												  }else{
+													  echo $row['dept_id']; 
+												  }?>	
+									  </span></p>
+										  <p class="salary">Salary: <span>
+										  <?php if($row['salary'] === NULL){
+												  echo "NULL";
+												  }else{
+													  echo $row['salary']; 
+												  }?>	
+									  </span></p>
+									  </fieldset>
+									  <fieldset class="commentsFieldset">
+										  <legend>Comments</legend>
+										  <p class="comments">
+											  <?php echo $row['comments'] ?>
+										  </p>
+									  </fieldset>
+								  </div>
+							  </div>
+							   <?php endforeach; 
+							   
+
+						}
+							
+						
+						 foreach ($rows as $row):
 							
 						  ?>
 						<div class="miniInformationCard">
@@ -157,7 +254,7 @@ $password = '';
 												echo $row['userid']; 
 											}?></span></p>
 										<div class="icons">
-											<button><i class="fa-solid fa-pen"></i></button>
+											<button><i class="fa-solid fa-pen" id="aktualizuj" "></i></button>
 											<button><i class="fa-solid fa-xmark "></i></button>
 										</div>
 									</div>
@@ -213,7 +310,8 @@ $password = '';
 								</fieldset>
 							</div>
 						</div>
-						 <?php }?>
+						 <?php endforeach; 
+						 ?>
 						
 						
 					</div>

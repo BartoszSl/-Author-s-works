@@ -4,7 +4,7 @@
 
   $pdo = new PDO("mysql:host=localhost;dbname=testowa;charset=utf8", 'root', '');
 
-  $stmt = $pdo->query("SELECT *, date(start_date) as date_without_hours FROM emp");
+  $stmt = $pdo->query("SELECT *, date(start_datee) as date_without_hours FROM emp");
   
   $rows = $stmt->fetchAll();
  
@@ -17,7 +17,7 @@
   $manager = $pdo->query('SELECT * FROM emp ;');
   $managerDane = $manager->fetchAll();
 
-  $wynikSearch = $pdo->query("SELECT *, date(start_date) as date_without_hours FROM emp WHERE first_name='$search_firstName'");
+  $wynikSearch = $pdo->query("SELECT *, date(start_datee) as date_without_hours FROM emp WHERE first_name='$search_firstName'");
   $searchDane =  $wynikSearch->fetchAll();
 ?>
 
@@ -53,10 +53,14 @@
 				<div class="leftCard">
 					<div class="shadow"></div>
 					<div class="insert">
-						<form class="insertForm" action="insert.php" method="post">
-							<div class="headingCard">
-								<h2>Dodaj pracownika</h2>
+						<form class="insertForm " action="script.php" method="post">
+							
+						
+						<div class="headingCard">
+								<h2 class="add">Dodaj pracownika</h2>
+								<h2 class="update h2Update">Edytuj użytkownika</h2>
 							</div>
+
 							<div class="firstGroup">
 								<div class="formItem firstItem">
 									<input type="text" id="firstName" name="first_name" required />
@@ -85,7 +89,7 @@
 								</div>
 
 								<div class="formItem dateItem">
-									<input type="date" id="start_date" name="start_date " required />
+									<input type="date" id="start_date" name="start_date" required />
 									<label for="startDate">Podaj datę startu</label>
 								</div>
 							</div>
@@ -109,7 +113,7 @@
 								<div class="formItem deptItem">
 									<select name="deptId" id="deptId">
 										<option value="">---------</option>
-										 <?php foreach($deptDane as $d): ?> -->
+										 <?php foreach($deptDane as $d): ?> 
                     					<option value="<?= $d['id'] ?>" required ><?= $d['region_name'] ?>-<?= $d['dept_name'] ?></option>
                     					<?php endforeach ?>
 									</select>
@@ -129,8 +133,14 @@
 								</div>
 							</div>
 
-							<button type="submit" class="insertDataBase" name="empAdd">
+							<button type="submit" class="insertDataBase add" name="empAdd">
 								Dodaj Pracownika
+							</button>
+
+								<input type="hidden" name="id" value="<?php echo $id; ?>">
+
+							<button type="submit" class="insertDataBase update" name="empUpdate">
+								Zapisz Edycję
 							</button>
 						</form>
 					</div>
@@ -158,12 +168,19 @@
 							
 								?>
 							  <div class="miniInformationCard">
-								  <div class="sameWidth leftBigInformationCard">
+							  	<div class="rightPanel">
+								  <div class="icons">
+												  <button id="aktualizuj" name="aktualizuj"><i class="fa-solid fa-pen"></i></button>
+												  <button><i class="fa-solid fa-xmark"></i></button>
+											  </div>
+								</div>
+							  	<div class="sameWidth">
 									  <fieldset class="daneFieldset">
 										  <legend>Dane</legend>
 										  <div class="topSmallCard">
 											  <p class="firstName">Firstname: <span class="firstNameSearch"><?php echo $row['first_name'] ?></span></p>
 											  <p class="lastName">Lastname: <span><?php echo $row['last_name'] ?></span></p>
+											  
 										  </div>
 								  
 												  <div class="downSmallCard">
@@ -172,12 +189,9 @@
 												  }else{
 													  echo $row['userid']; 
 												  }?></span></p>
-											  <div class="icons">
-												  <button><i class="fa-solid fa-pen"></i></button>
-												  <button><i class="fa-solid fa-xmark "></i></button>
-											  </div>
+											 
 										  </div>
-										  <p class="startDate">start_date: 
+										  <p class="start_date">start_date: 
 										  <span>
 										  <?php if($row['date_without_hours'] === NULL){
 												  echo "NULL";
@@ -201,6 +215,7 @@
 												  }?>		
 									  </span></p>
 									  </fieldset>
+									  
 								  </div>
 	  
 								  <div class="sameWidth rightBigInformationCard">
@@ -232,19 +247,25 @@
 							   <?php endforeach; 
 							   
 
-						}
-							
-						
+												}
 						 foreach ($rows as $row):
-							
+							$id = $row['id'];
 						  ?>
 						<div class="miniInformationCard">
-							<div class="sameWidth leftBigInformationCard">
+							<div class="rightPanel">
+							<div class="icons">
+											<button><i class="fa-solid fa-pen" id="aktualizuj" name="aktualizuj""></i></button>
+											<button><i class="fa-solid fa-xmark "></i></button>
+										</div>
+							</div>
+						
+						<div class="sameWidth leftBigInformationCard">
 								<fieldset class="daneFieldset">
 									<legend>Dane</legend>
 									<div class="topSmallCard">
 										<p class="firstName">Firstname: <span><?php echo $row['first_name'] ?></span></p>
 										<p class="lastName">Lastname: <span><?php echo $row['last_name'] ?></span></p>
+										
 									</div>
 							
 											<div class="downSmallCard">
@@ -253,12 +274,9 @@
 											}else{
 												echo $row['userid']; 
 											}?></span></p>
-										<div class="icons">
-											<button><i class="fa-solid fa-pen" id="aktualizuj" "></i></button>
-											<button><i class="fa-solid fa-xmark "></i></button>
-										</div>
+										
 									</div>
-									<p class="startDate">start_date: 
+									<p class="start_date">start_date: 
 									<span>
 									<?php if($row['date_without_hours'] === NULL){
 											echo "NULL";
@@ -310,6 +328,7 @@
 								</fieldset>
 							</div>
 						</div>
+						
 						 <?php endforeach; 
 						 ?>
 						

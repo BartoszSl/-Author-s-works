@@ -19,6 +19,8 @@
 
   $wynikSearch = $pdo->query("SELECT *, date(start_datee) as date_without_hours FROM emp WHERE first_name='$search_firstName'");
   $searchDane =  $wynikSearch->fetchAll();
+
+
 ?>
 
 
@@ -50,10 +52,213 @@
 		<div class="backgroundImageShadow"></div>
 		<main>
 			<div class="rightSideCard leftSideCard">
+				
+
+				<div class="right">
+					<div class="listIdentifyCard">
+						<div class="headingCard">
+							<form method="post">
+								<input type="text" id="search" placeholder="Search by FirstName" name="search_firstName" />
+
+								<button type="submit" name="wyslij">
+									<i class="fa-solid fa-magnifying-glass"></i>
+								</button>				
+							</form>
+						</div>
+						<?php
+
+						
+						if(isset($_POST['wyslij'])){
+							
+							
+
+							foreach ($searchDane as $row):
+								$aktualneId = $row['id'];
+								?>
+
+
+							  <div class="miniInformationCard">
+							  	<div class="rightPanel">
+								  <div class="icons">
+												  <button class="updateButton"  id="aktualizuj" name="aktualizuj"><i class="fa-solid fa-pen linkAktualizuj"></i></button>
+												  <button><i class="fa-solid fa-xmark"></i></button>
+											  </div>
+								</div>
+							  	<div class="sameWidth">
+									  <fieldset class="daneFieldset">
+										  <legend>Dane</legend>
+										  <div class="topSmallCard">
+											  <p class="firstName">Firstname: <span class="firstNameSearch"><?php echo $row['first_name'] ?></span></p>
+											  <p class="lastName">Lastname: <span><?php echo $row['last_name'] ?></span></p>
+											  
+										  </div>
+								  
+												  <div class="downSmallCard">
+											  <p class="userId">UserID: <span><?php if($row['userid'] === NULL){
+												  echo "NULL";
+												  }else{
+													  echo $row['userid']; 
+												  }?></span></p>
+											 
+										  </div>
+										  <p class="start_date">start_date: 
+										  <span>
+										  <?php if($row['date_without_hours'] === NULL){
+												  echo "NULL";
+												  }else{
+													  echo $row['date_without_hours']; 
+												  }?>
+										  </span></p>
+										  <p class="managerId">Managerid: <span>
+											  <?php if($row['manager_id'] === NULL){
+												  echo "NULL";
+												  }else{
+													  echo $row['manager_id'];
+													  } ?></span></p>
+	  
+	  
+										  <p class="title">Title: <span>
+										  <?php if($row['title'] === NULL){
+												  echo "NULL";
+												  }else{
+													  echo $row['title']; 
+												  }?>		
+									  </span></p>
+									  </fieldset>
+									  
+								  </div>
+	  
+								  <div class="sameWidth rightBigInformationCard">
+									  <fieldset class="salaryFieldset">
+										  <legend>Salary</legend>
+										  <p class="deptId">Deptid: <span>
+										  <?php if($row['dept_id'] === NULL){
+												  echo "NULL";
+												  }else{
+													  echo $row['dept_id']; 
+												  }?>	
+									  </span></p>
+										  <p class="salary">Salary: <span>
+										  <?php if($row['salary'] === NULL){
+												  echo "NULL";
+												  }else{
+													  echo $row['salary']; 
+												  }?>	
+									  </span></p>
+									  </fieldset>
+									  <fieldset class="commentsFieldset">
+										  <legend>Comments</legend>
+										  <p class="comments">
+											  <?php echo $row['comments'] ?>
+										  </p>
+									  </fieldset>
+								  </div>
+							  </div>
+							   <?php endforeach; 
+							   
+
+												}
+						 foreach ($rows as $row):
+							
+							
+						  ?>
+
+							
+						<div class="miniInformationCard">
+							<div class="rightPanel">
+							<div class="icons">
+												  <button value="" id="aktualizuj" name="aktualizuj"><i class="fa-solid fa-pen linkAktualizuj"></i></button>
+
+												  <?php if(isset($_POST['aktualizuj'])){$aktualneId = $row['id'];} ?>
+
+												  <button><i class="fa-solid fa-xmark"></i></button>
+											  </div>
+						 </div>
+						<div class="sameWidth leftBigInformationCard">
+								<fieldset class="daneFieldset">
+									<legend>Dane</legend>
+									<div class="topSmallCard">
+										<p class="firstName">Firstname: <span><?php echo $row['first_name'] ?></span></p>
+										<p class="lastName">Lastname: <span><?php echo $row['last_name'] ?></span></p>
+										
+									</div>
+							
+											<div class="downSmallCard">
+										<p class="userId">UserID: <span><?php if($row['userid'] === NULL){
+											echo "NULL";
+											}else{
+												echo $row['userid']; 
+											}?></span></p>
+										
+									</div>
+									<p class="start_date">start_date: 
+									<span>
+									<?php if($row['date_without_hours'] === NULL){
+											echo "NULL";
+											}else{
+												echo $row['date_without_hours']; 
+											}?>
+									</span></p>
+									<p class="managerId">Managerid: <span>
+										<?php if($row['manager_id'] === NULL){
+											echo "NULL";
+											}else{
+												echo $row['manager_id'];
+												} ?></span></p>
+
+
+									<p class="title">Title: <span>
+									<?php if($row['title'] === NULL){
+											echo "NULL";
+											}else{
+												echo $row['title']; 
+											}?>		
+								</span></p>
+								</fieldset>
+							</div>
+
+							<div class="sameWidth rightBigInformationCard">
+								<fieldset class="salaryFieldset">
+									<legend>Salary</legend>
+									<p class="deptId">Deptid: <span>
+									<?php if($row['dept_id'] === NULL){
+											echo "NULL";
+											}else{
+												echo $row['dept_id']; 
+											}?>	
+								</span></p>
+									<p class="salary">Salary: <span>
+									<?php if($row['salary'] === NULL){
+											echo "NULL";
+											}else{
+												echo $row['salary']; 
+											}?>	
+								</span></p>
+								</fieldset>
+								<fieldset class="commentsFieldset">
+									<legend>Comments</legend>
+									<p class="comments">
+										<?php echo $row['comments'] ?>
+									</p>
+								</fieldset>
+							</div>
+						</div>
+						
+						 <?php endforeach; 
+						 $pickId = $pdo->query("SELECT * FROM emp WHERE id = '$aktualneId'");
+						 $pickIdDane = $pickId->fetchAll();
+						 ?>
+						
+						
+					</div>
+
+					<h4 class="author">Author: <span>Bartosz Ślusarczyk &copy;</span></h4>
+				</div>
+
 				<div class="leftCard">
 					<div class="shadow"></div>
 					<div class="insert">
-						<form class="insertForm " action="script.php" method="post">
+						<form class="insertForm " action="script.php" method="get">
 							
 						
 						<div class="headingCard">
@@ -133,209 +338,29 @@
 								</div>
 							</div>
 
-							<button type="submit" class="insertDataBase add" name="empAdd">
-								Dodaj Pracownika
-							</button>
+							<?php 
+								foreach($pickIdDane as $pick):
+									
 
-								<input type="hidden" name="id" value="<?php echo $id; ?>">
+?>
+									<p><?php echo "Edytujesz: "; ?><span><?php echo $pick['last_name'];?></span></p>
+
+									<input type="hidden" name="emp_id" value="<?php echo $pick['id']; ?>">
+<?php	
+										 endforeach;
+
+?>
 
 							<button type="submit" class="insertDataBase update" name="empUpdate">
 								Zapisz Edycję
 							</button>
+
+							<button type="submit" class="insertDataBase add" name="empAdd">
+								Dodaj Pracownika
+							</button>
+
 						</form>
 					</div>
-				</div>
-
-				<div class="right">
-					<div class="listIdentifyCard">
-						<div class="headingCard">
-							<form method="post">
-								<input type="text" id="search" placeholder="Search by FirstName" name="search_firstName" />
-
-								<button type="submit" name="wyslij">
-									<i class="fa-solid fa-magnifying-glass"></i>
-								</button>				
-							</form>
-						</div>
-						<?php
-
-						
-						if(isset($_POST['wyslij'])){
-							
-							
-
-							foreach ($searchDane as $row):
-							
-								?>
-							  <div class="miniInformationCard">
-							  	<div class="rightPanel">
-								  <div class="icons">
-												  <button id="aktualizuj" name="aktualizuj"><i class="fa-solid fa-pen"></i></button>
-												  <button><i class="fa-solid fa-xmark"></i></button>
-											  </div>
-								</div>
-							  	<div class="sameWidth">
-									  <fieldset class="daneFieldset">
-										  <legend>Dane</legend>
-										  <div class="topSmallCard">
-											  <p class="firstName">Firstname: <span class="firstNameSearch"><?php echo $row['first_name'] ?></span></p>
-											  <p class="lastName">Lastname: <span><?php echo $row['last_name'] ?></span></p>
-											  
-										  </div>
-								  
-												  <div class="downSmallCard">
-											  <p class="userId">UserID: <span><?php if($row['userid'] === NULL){
-												  echo "NULL";
-												  }else{
-													  echo $row['userid']; 
-												  }?></span></p>
-											 
-										  </div>
-										  <p class="start_date">start_date: 
-										  <span>
-										  <?php if($row['date_without_hours'] === NULL){
-												  echo "NULL";
-												  }else{
-													  echo $row['date_without_hours']; 
-												  }?>
-										  </span></p>
-										  <p class="managerId">Managerid: <span>
-											  <?php if($row['manager_id'] === NULL){
-												  echo "NULL";
-												  }else{
-													  echo $row['manager_id'];
-													  } ?></span></p>
-	  
-	  
-										  <p class="title">Title: <span>
-										  <?php if($row['title'] === NULL){
-												  echo "NULL";
-												  }else{
-													  echo $row['title']; 
-												  }?>		
-									  </span></p>
-									  </fieldset>
-									  
-								  </div>
-	  
-								  <div class="sameWidth rightBigInformationCard">
-									  <fieldset class="salaryFieldset">
-										  <legend>Salary</legend>
-										  <p class="deptId">Deptid: <span>
-										  <?php if($row['dept_id'] === NULL){
-												  echo "NULL";
-												  }else{
-													  echo $row['dept_id']; 
-												  }?>	
-									  </span></p>
-										  <p class="salary">Salary: <span>
-										  <?php if($row['salary'] === NULL){
-												  echo "NULL";
-												  }else{
-													  echo $row['salary']; 
-												  }?>	
-									  </span></p>
-									  </fieldset>
-									  <fieldset class="commentsFieldset">
-										  <legend>Comments</legend>
-										  <p class="comments">
-											  <?php echo $row['comments'] ?>
-										  </p>
-									  </fieldset>
-								  </div>
-							  </div>
-							   <?php endforeach; 
-							   
-
-												}
-						 foreach ($rows as $row):
-							$id = $row['id'];
-						  ?>
-						<div class="miniInformationCard">
-							<div class="rightPanel">
-							<div class="icons">
-											<button><i class="fa-solid fa-pen" id="aktualizuj" name="aktualizuj""></i></button>
-											<button><i class="fa-solid fa-xmark "></i></button>
-										</div>
-							</div>
-						
-						<div class="sameWidth leftBigInformationCard">
-								<fieldset class="daneFieldset">
-									<legend>Dane</legend>
-									<div class="topSmallCard">
-										<p class="firstName">Firstname: <span><?php echo $row['first_name'] ?></span></p>
-										<p class="lastName">Lastname: <span><?php echo $row['last_name'] ?></span></p>
-										
-									</div>
-							
-											<div class="downSmallCard">
-										<p class="userId">UserID: <span><?php if($row['userid'] === NULL){
-											echo "NULL";
-											}else{
-												echo $row['userid']; 
-											}?></span></p>
-										
-									</div>
-									<p class="start_date">start_date: 
-									<span>
-									<?php if($row['date_without_hours'] === NULL){
-											echo "NULL";
-											}else{
-												echo $row['date_without_hours']; 
-											}?>
-									</span></p>
-									<p class="managerId">Managerid: <span>
-										<?php if($row['manager_id'] === NULL){
-											echo "NULL";
-											}else{
-												echo $row['manager_id'];
-												} ?></span></p>
-
-
-									<p class="title">Title: <span>
-									<?php if($row['title'] === NULL){
-											echo "NULL";
-											}else{
-												echo $row['title']; 
-											}?>		
-								</span></p>
-								</fieldset>
-							</div>
-
-							<div class="sameWidth rightBigInformationCard">
-								<fieldset class="salaryFieldset">
-									<legend>Salary</legend>
-									<p class="deptId">Deptid: <span>
-									<?php if($row['dept_id'] === NULL){
-											echo "NULL";
-											}else{
-												echo $row['dept_id']; 
-											}?>	
-								</span></p>
-									<p class="salary">Salary: <span>
-									<?php if($row['salary'] === NULL){
-											echo "NULL";
-											}else{
-												echo $row['salary']; 
-											}?>	
-								</span></p>
-								</fieldset>
-								<fieldset class="commentsFieldset">
-									<legend>Comments</legend>
-									<p class="comments">
-										<?php echo $row['comments'] ?>
-									</p>
-								</fieldset>
-							</div>
-						</div>
-						
-						 <?php endforeach; 
-						 ?>
-						
-						
-					</div>
-
-					<h4 class="author">Author: <span>Bartosz Ślusarczyk &copy;</span></h4>
 				</div>
 			</div>
 		</main>

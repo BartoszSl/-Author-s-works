@@ -11,7 +11,7 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Poppins' , sans-serif;
 	background-image: url('../img/pexels-negative-space-97077.jpg');
 	background-position: center;
 	background-size: cover;
@@ -94,6 +94,10 @@ body {
 	}
 
 	main {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
 		.leftSideCard {
 			position: relative;
 			.leftCard {
@@ -127,7 +131,7 @@ body {
 						border: 3px solid $content-color;
 						border-radius: 10px;
 						width: 70%;
-						height: 80%;
+						height: 85%;
 						label {
 							font-size: 12px;
 						}
@@ -228,6 +232,14 @@ body {
 							}
 						}
 
+						p {
+							span {
+								font-weight: 700;
+								color: $decoration-color;
+							}
+						}
+						
+
 						.insertDataBase {
 							cursor: pointer;
 							margin-top: 5px;
@@ -240,6 +252,7 @@ body {
 							font-size: 20px;
 							border-radius: 10px;
 							transition: box-shadow 0.4s;
+							
 						}
 						.insertDataBase:hover {
 							box-shadow: 0px 0px 10px 5px $heading-color;
